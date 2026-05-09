@@ -1418,6 +1418,25 @@ img { max-width: 100%; display: block; }
   font-size: 14.5px;
   color: var(--ink-2);
 }
+.foot__contact-title {
+  font-family: var(--hand);
+  font-size: 12.5px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--forest);
+  margin: 0 0 4px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.foot__contact-title::before {
+  content: "";
+  width: 28px;
+  height: 1.5px;
+  background: var(--forest);
+  border-radius: 1px;
+  display: inline-block;
+}
 .foot__link {
   display: inline-flex;
   align-items: center;
@@ -1951,11 +1970,8 @@ img { max-width: 100%; display: block; }
      FOOTER
      ═══════════════════════════════════════════════════════════════ -->
 <footer class="foot">
-  <div class="foot__brand">
-    Jasmine
-    <small>EDUC 5390 · Penn GSE · Spring 2026</small>
-  </div>
-  <div class="foot__contact" aria-label="Contact">
+  <div class="foot__contact" aria-labelledby="foot-contact-title">
+    <p class="foot__contact-title" id="foot-contact-title">Contact</p>
     <a href="mailto:wang76@upenn.edu" class="foot__link">
       <svg width="16" height="16" aria-hidden="true"><use href="#i-mail"/></svg>
       wang76@upenn.edu
@@ -1968,6 +1984,10 @@ img { max-width: 100%; display: block; }
       <svg width="16" height="16" aria-hidden="true"><use href="#i-instagram"/></svg>
       @yuzhu0307
     </a>
+  </div>
+  <div class="foot__brand">
+    Jasmine
+    <small>EDUC 5390 · Penn GSE · Spring 2026</small>
   </div>
   <div class="foot__right">
     <svg width="60" height="48" style="color: var(--sage); opacity: 0.7;"><use href="#i-branch"/></svg>
