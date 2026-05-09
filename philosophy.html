@@ -1410,6 +1410,12 @@ img { max-width: 100%; display: block; }
 }
 .foot__top:hover { color: var(--forest); border-color: var(--forest); }
 
+.foot__left {
+  display: flex;
+  align-items: flex-start;
+  gap: clamp(32px, 5vw, 72px);
+  flex-wrap: wrap;
+}
 .foot__contact {
   display: flex;
   flex-direction: column;
@@ -1970,20 +1976,22 @@ img { max-width: 100%; display: block; }
      FOOTER
      ═══════════════════════════════════════════════════════════════ -->
 <footer class="foot">
-  <div class="foot__contact" aria-labelledby="foot-contact-title">
-    <p class="foot__contact-title" id="foot-contact-title">Contact</p>
-    <a href="mailto:wang76@upenn.edu" class="foot__link">
-      <svg width="16" height="16" aria-hidden="true"><use href="#i-mail"/></svg>
-      wang76@upenn.edu
-    </a>
-    <a href="https://instagram.com/yuzhu0307" target="_blank" rel="noopener" class="foot__link">
-      <svg width="16" height="16" aria-hidden="true"><use href="#i-instagram"/></svg>
-      @yuzhu0307
-    </a>
-  </div>
-  <div class="foot__brand">
-    Jasmine
-    <small>EDUC 5390 · Penn GSE · Spring 2026</small>
+  <div class="foot__left">
+    <div class="foot__brand">
+      Jasmine
+      <small>EDUC 5390 · Penn GSE · Spring 2026</small>
+    </div>
+    <div class="foot__contact" aria-labelledby="foot-contact-title">
+      <p class="foot__contact-title" id="foot-contact-title">Contact</p>
+      <a href="mailto:wang76@upenn.edu" class="foot__link">
+        <svg width="16" height="16" aria-hidden="true"><use href="#i-mail"/></svg>
+        wang76@upenn.edu
+      </a>
+      <a href="https://instagram.com/yuzhu0307" target="_blank" rel="noopener" class="foot__link">
+        <svg width="16" height="16" aria-hidden="true"><use href="#i-instagram"/></svg>
+        @yuzhu0307
+      </a>
+    </div>
   </div>
   <div class="foot__right">
     <svg width="60" height="48" style="color: var(--sage); opacity: 0.7;"><use href="#i-branch"/></svg>
