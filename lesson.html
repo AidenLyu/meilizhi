@@ -1,0 +1,2009 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Lesson Plan &amp; Reflection — EDUC 5390 Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=Kalam:wght@300;400;700&family=Patrick+Hand&family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+/* ═══════════════════════════════════════════════════════════════
+   Sketchbook Portfolio · EDUC 5390
+   ═══════════════════════════════════════════════════════════════ */
+
+:root {
+  --sage:    #A8B89A;
+  --brown:   #B08968;
+  --sun:     #E8C547;
+  --sky:     #B8D4E3;
+  --pink:    #F4B6A8;
+  --forest:  #4A6741;
+  --cream:   #FAF6F0;
+  --cream-2: #F2EBDD;
+  --cream-3: #EAE0CC;
+  --ink:     #3D3A35;
+  --ink-2:   #5A554D;
+  --ink-3:   #8A8377;
+
+  --hand-display: "Caveat", "Kalam", cursive;
+  --hand:         "Patrick Hand", "Kalam", cursive;
+  --serif:        "Lora", "Crimson Text", Georgia, serif;
+  --serif-alt:    "Crimson Text", "Lora", Georgia, serif;
+
+  --paper-grain: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch' seed='3'/><feColorMatrix values='0 0 0 0 0.36  0 0 0 0 0.30  0 0 0 0 0.22  0 0 0 0.06 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+
+  --maxw: 1240px;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; scroll-padding-top: 110px; }
+
+body {
+  margin: 0;
+  background: var(--cream);
+  background-image: var(--paper-grain);
+  color: var(--ink);
+  font-family: var(--serif);
+  font-size: 18px;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+img { max-width: 100%; display: block; }
+
+::selection { background: var(--sun); color: var(--ink); }
+
+/* ═══ NAV — paper tabs ═══ */
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background:
+    linear-gradient(to bottom, rgba(250,246,240,.96), rgba(250,246,240,.92));
+  backdrop-filter: blur(10px);
+  border-bottom: 1px dashed var(--ink-3);
+}
+.nav__inner {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 16px clamp(20px, 4vw, 48px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+.nav__brand {
+  font-family: var(--hand-display);
+  font-size: 30px;
+  color: var(--forest);
+  font-weight: 600;
+  text-decoration: none;
+  letter-spacing: 0.5px;
+  transform: rotate(-1.5deg);
+  display: inline-block;
+}
+.nav__brand small {
+  display: block;
+  font-family: var(--hand);
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  color: var(--ink-3);
+  text-transform: uppercase;
+  margin-top: -4px;
+  transform: rotate(0.5deg);
+}
+.nav__list {
+  list-style: none;
+  display: flex;
+  gap: 6px;
+  margin: 0;
+  padding: 0;
+}
+.nav__list a {
+  display: inline-block;
+  font-family: var(--hand);
+  font-size: 17px;
+  color: var(--ink);
+  text-decoration: none;
+  padding: 8px 16px 10px;
+  position: relative;
+  transition: transform .25s, color .25s;
+}
+.nav__list a::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--cream-2);
+  border: 1.5px solid var(--ink-3);
+  border-bottom: none;
+  border-radius: 8px 8px 2px 2px;
+  z-index: -1;
+  opacity: 0;
+  transition: opacity .25s, transform .25s;
+  transform: translateY(4px);
+}
+.nav__list a:hover { color: var(--forest); transform: translateY(-2px); }
+.nav__list a:hover::before { opacity: 1; transform: translateY(0); }
+.nav__list a.is-active { color: var(--forest); }
+.nav__list a.is-active::before {
+  opacity: 1;
+  transform: translateY(0);
+  background: var(--sage);
+  border-color: var(--forest);
+}
+
+.nav__burger {
+  display: none;
+  background: transparent;
+  border: 1.5px solid var(--ink);
+  border-radius: 6px;
+  padding: 8px 12px;
+  cursor: pointer;
+  font-family: var(--hand);
+  font-size: 16px;
+  color: var(--ink);
+}
+
+@media (max-width: 820px) {
+  .nav__list {
+    position: absolute;
+    top: 100%;
+    right: 16px;
+    background: var(--cream);
+    border: 1.5px solid var(--ink-3);
+    border-radius: 12px;
+    padding: 12px;
+    flex-direction: column;
+    gap: 0;
+    box-shadow: 0 12px 32px -10px rgba(61,58,53,.25);
+    transform: translateY(-8px);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .2s, transform .2s;
+  }
+  .nav__list.is-open { opacity: 1; transform: translateY(0); pointer-events: auto; }
+  .nav__list a::before { display: none; }
+  .nav__list a {
+    display: block;
+    padding: 10px 18px;
+    border-radius: 8px;
+  }
+  .nav__list a:hover { background: var(--cream-2); }
+  .nav__list a.is-active { background: var(--sage); color: var(--ink); }
+  .nav__burger { display: inline-block; }
+}
+
+/* ═══ Section frames ═══ */
+.section {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: clamp(48px, 8vw, 96px) clamp(20px, 4vw, 56px);
+  position: relative;
+}
+
+.section + .section {
+  border-top: 1px dashed var(--ink-3);
+}
+
+/* Hand-drawn divider line — wavy SVG */
+.divider {
+  display: block;
+  margin: 56px auto;
+  width: min(420px, 80%);
+  height: 24px;
+  opacity: 0.55;
+}
+
+/* ═══ Hero & headings ═══ */
+.eyebrow {
+  font-family: var(--hand);
+  font-size: 14px;
+  letter-spacing: 0.18em;
+  color: var(--forest);
+  text-transform: uppercase;
+  margin: 0 0 12px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.eyebrow::before {
+  content: "";
+  width: 36px;
+  height: 1.5px;
+  background: var(--forest);
+  border-radius: 1px;
+}
+
+.hand-title {
+  font-family: var(--hand-display);
+  font-weight: 600;
+  color: var(--ink);
+  line-height: 1;
+  letter-spacing: 0.5px;
+  margin: 0;
+}
+
+.h-display {
+  font-size: clamp(64px, 11vw, 132px);
+  margin: 0 0 18px;
+  text-wrap: balance;
+}
+.h-display .accent { color: var(--forest); font-style: italic; }
+
+.h-section {
+  font-family: var(--hand-display);
+  font-size: clamp(44px, 6vw, 72px);
+  font-weight: 600;
+  color: var(--forest);
+  margin: 0 0 8px;
+  line-height: 1;
+  letter-spacing: 0.5px;
+}
+
+.h-sub {
+  font-family: var(--serif-alt);
+  font-style: italic;
+  font-size: clamp(18px, 1.6vw, 22px);
+  color: var(--ink-2);
+  margin: 0 0 32px;
+  max-width: 60ch;
+  text-wrap: pretty;
+}
+
+.lede {
+  font-family: var(--serif);
+  font-size: clamp(18px, 1.5vw, 21px);
+  line-height: 1.65;
+  color: var(--ink-2);
+  max-width: 62ch;
+  margin: 0 0 28px;
+  text-wrap: pretty;
+}
+
+/* ═══ Hero spread ═══ */
+.hero {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: clamp(32px, 6vw, 88px);
+  align-items: center;
+  position: relative;
+}
+.hero__badge {
+  position: absolute;
+  top: -12px;
+  right: 0;
+  width: 130px;
+  opacity: 0.85;
+}
+@media (max-width: 820px) {
+  .hero { grid-template-columns: 1fr; }
+  .hero__badge { display: none; }
+}
+
+/* ═══ About me block — warm welcome card ═══ */
+.welcome {
+  margin-top: 72px;
+  background: var(--cream-2);
+  background-image:
+    radial-gradient(ellipse at 12% 18%, rgba(232,197,71,.18) 0%, transparent 42%),
+    radial-gradient(ellipse at 88% 78%, rgba(184,212,227,.22) 0%, transparent 48%),
+    radial-gradient(ellipse at 52% 92%, rgba(244,182,168,.16) 0%, transparent 42%);
+  border-radius: 6px;
+  padding: clamp(32px, 5vw, 64px);
+  position: relative;
+  box-shadow:
+    0 1px 0 rgba(61,58,53,.04),
+    0 12px 28px -18px rgba(61,58,53,.20);
+}
+.welcome::before, .welcome::after {
+  content: "";
+  position: absolute;
+  width: 90px;
+  height: 26px;
+  background: rgba(232,197,71,.55);
+  border-left: 1px dashed rgba(176,137,104,.5);
+  border-right: 1px dashed rgba(176,137,104,.5);
+  z-index: 2;
+  box-shadow: 0 2px 4px rgba(61,58,53,.08);
+}
+.welcome::before { top: -12px; left: 8%; transform: rotate(-3deg); }
+.welcome::after  { top: -12px; right: 10%; transform: rotate(2.5deg); }
+
+.welcome h3 {
+  font-family: var(--hand-display);
+  font-size: clamp(38px, 4.5vw, 56px);
+  font-weight: 600;
+  color: var(--forest);
+  margin: 0 0 18px;
+  line-height: 1;
+}
+.welcome .placeholder {
+  font-family: var(--hand);
+  color: var(--ink-3);
+  background: rgba(255,255,255,0.6);
+  border: 1.5px dashed var(--brown);
+  padding: 24px 28px;
+  border-radius: 4px;
+  font-size: 15px;
+  letter-spacing: 0.04em;
+  line-height: 1.7;
+}
+.welcome .placeholder strong {
+  display: block;
+  color: var(--forest);
+  font-family: var(--hand-display);
+  font-size: 22px;
+  margin-bottom: 8px;
+  letter-spacing: 0.5px;
+}
+
+/* ═══ Polaroid / taped photo ═══ */
+.polaroid {
+  background: #fff;
+  padding: 14px 14px 56px;
+  box-shadow:
+    0 1px 0 rgba(61,58,53,.06),
+    0 18px 32px -16px rgba(61,58,53,.30),
+    0 6px 12px -6px rgba(61,58,53,.16);
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  transition: transform .35s cubic-bezier(.2,.8,.2,1), box-shadow .35s;
+}
+.polaroid::before {
+  /* tape strip */
+  content: "";
+  position: absolute;
+  top: -14px;
+  left: 50%;
+  transform: translateX(-50%) rotate(-2deg);
+  width: 88px;
+  height: 24px;
+  background: rgba(232,197,71,.65);
+  border-left: 1px dashed rgba(176,137,104,.45);
+  border-right: 1px dashed rgba(176,137,104,.45);
+  z-index: 2;
+  box-shadow: 0 2px 5px rgba(61,58,53,.10);
+}
+.polaroid--pink::before { background: rgba(244,182,168,.7); }
+.polaroid--sky::before  { background: rgba(184,212,227,.78); }
+.polaroid--sage::before { background: rgba(168,184,154,.72); }
+
+.polaroid .frame {
+  aspect-ratio: 4 / 3;
+}
+.polaroid--portrait .frame {
+  aspect-ratio: 3 / 4;
+  background: var(--cream-3);
+  background-image:
+    linear-gradient(135deg, rgba(61,58,53,.02) 0%, rgba(61,58,53,.06) 100%),
+    var(--paper-grain);
+  background-size: cover, 240px 240px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--hand);
+  color: var(--ink-3);
+  text-align: center;
+  padding: 16px;
+  font-size: 14px;
+  letter-spacing: 0.06em;
+  line-height: 1.5;
+  border: 1px dashed rgba(176,137,104,.5);
+  position: relative;
+  overflow: hidden;
+}
+.polaroid .frame::after {
+  /* corner mark */
+  content: "";
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 18px;
+  height: 18px;
+  border-top: 1.5px solid rgba(176,137,104,.5);
+  border-right: 1.5px solid rgba(176,137,104,.5);
+}
+.polaroid .frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.polaroid .caption {
+  position: absolute;
+  left: 14px;
+  right: 14px;
+  bottom: 14px;
+  font-family: var(--hand);
+  font-size: 16px;
+  color: var(--ink-2);
+  text-align: center;
+  letter-spacing: 0.02em;
+  line-height: 1.3;
+}
+
+/* About — two photos */
+.bio-photos {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(24px, 4vw, 56px);
+  margin-top: 72px;
+  padding: 0 clamp(0px, 4vw, 40px);
+}
+.bio-photos .polaroid:nth-child(1) { transform: rotate(-2.5deg); }
+.bio-photos .polaroid:nth-child(2) { transform: rotate(2deg) translateY(20px); }
+.bio-photos .polaroid:hover { transform: rotate(0) translateY(-4px); }
+@media (max-width: 600px) {
+  .bio-photos { grid-template-columns: 1fr; }
+}
+
+/* Tight matted photo frame for About — no caption gutter, image fills the frame. */
+.bio-photos .polaroid {
+  padding: 14px;
+  background: #fff;
+}
+.bio-photos .polaroid .caption { display: none; }
+.bio-photos .polaroid .frame,
+.bio-photos .polaroid .frame:has(img) {
+  aspect-ratio: 4/5;
+  background: var(--cream-3);
+  border: none;
+  padding: 0;
+  display: block;
+  overflow: hidden;
+  position: relative;
+}
+.bio-photos .polaroid .frame::after { display: none; }
+.bio-photos .polaroid .frame:has(img) img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Welcome card — name, credentials, prose */
+.welcome__eyebrow {
+  font-family: var(--hand);
+  font-size: 13px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--brown);
+  margin: 0 0 8px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.welcome__eyebrow::before {
+  content: "";
+  width: 32px;
+  height: 1.5px;
+  background: var(--brown);
+  border-radius: 1px;
+  display: inline-block;
+}
+.welcome h3 { margin: 0 0 4px; }
+.welcome__subtitle {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: clamp(20px, 1.8vw, 24px);
+  color: var(--ink-2);
+  margin: 0 0 22px;
+  letter-spacing: 0.01em;
+}
+.welcome__subtitle .ch {
+  font-style: normal;
+  letter-spacing: 0.06em;
+  color: var(--forest);
+  margin-left: 4px;
+}
+.welcome__creds {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 32px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.welcome__creds li {
+  font-family: var(--hand);
+  font-size: 12.5px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink);
+  padding: 7px 14px 6px;
+  background: rgba(255,255,255,0.65);
+  border: 1.5px solid var(--brown);
+  border-radius: 999px;
+  white-space: nowrap;
+}
+.welcome__prose p {
+  font-family: var(--serif);
+  font-size: 17px;
+  line-height: 1.75;
+  color: var(--ink);
+  margin: 0 0 1em;
+  max-width: 62ch;
+  text-wrap: pretty;
+}
+.welcome__prose p:last-child { margin-bottom: 0; }
+
+/* About — two-column composition: text left, layered photos right */
+.welcome {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
+  gap: clamp(36px, 5vw, 80px);
+  align-items: center;
+}
+.welcome__text { min-width: 0; }
+.welcome__photos {
+  position: relative;
+  padding: 28px 8px 48px 64px;
+  min-width: 0;
+}
+.welcome__photos .polaroid { margin: 0; }
+
+.bio-photo--main {
+  padding: 14px;
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  transform: rotate(2deg);
+  box-shadow:
+    0 1px 0 rgba(61,58,53,.06),
+    0 22px 42px -16px rgba(61,58,53,.34),
+    0 8px 14px -6px rgba(61,58,53,.18);
+}
+.bio-photo--main .frame,
+.bio-photo--main .frame:has(img) {
+  aspect-ratio: 4/5;
+  overflow: hidden;
+  background: var(--cream-3);
+  border: none;
+  padding: 0;
+  display: block;
+}
+.bio-photo--main .frame:has(img) img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.bio-photo--accent {
+  padding: 10px;
+  position: absolute;
+  left: -8%;
+  bottom: -6%;
+  width: 42%;
+  z-index: 3;
+  transform: rotate(-10deg);
+  box-shadow:
+    0 1px 0 rgba(61,58,53,.06),
+    0 20px 34px -12px rgba(61,58,53,.46),
+    0 6px 12px -6px rgba(61,58,53,.20);
+}
+.bio-photo--accent .frame,
+.bio-photo--accent .frame:has(img) {
+  aspect-ratio: 4/5;
+  overflow: hidden;
+  background: var(--cream-3);
+  border: none;
+  padding: 0;
+  display: block;
+}
+.bio-photo--accent .frame:has(img) img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.welcome__photos .polaroid:hover {
+  transform: translateY(-4px) rotate(0) !important;
+  z-index: 5;
+}
+
+/* Floating botanicals around the photo composition */
+.photo-deco {
+  position: absolute;
+  pointer-events: none;
+}
+.photo-deco--leaf {
+  top: -10px;
+  right: 4px;
+  width: 64px;
+  height: 64px;
+  color: var(--sage);
+  transform: rotate(28deg);
+  opacity: 0.6;
+  z-index: 4;
+}
+.photo-deco--branch {
+  bottom: -28px;
+  right: -16px;
+  width: 130px;
+  height: 130px;
+  color: var(--brown);
+  transform: rotate(-18deg);
+  opacity: 0.32;
+  z-index: 0;
+}
+.photo-deco--flower {
+  top: 38%;
+  left: -28px;
+  width: 44px;
+  height: 44px;
+  color: var(--pink);
+  transform: rotate(-12deg);
+  opacity: 0.7;
+  z-index: 4;
+}
+
+@media (max-width: 820px) {
+  .welcome { grid-template-columns: 1fr; }
+  .welcome__photos {
+    padding: 16px 8px 44px 24px;
+    margin-top: 24px;
+  }
+  .bio-photo--main { transform: rotate(1deg); }
+  .bio-photo--accent {
+    width: 38%;
+    left: 0;
+    bottom: -8%;
+  }
+  .photo-deco--branch { width: 100px; height: 100px; }
+}
+
+/* ═══ "What you'll find here" cards ═══ */
+.guide {
+  margin-top: 96px;
+}
+.guide__grid {
+  margin-top: 36px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 22px;
+}
+@media (max-width: 900px) { .guide__grid { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 520px) { .guide__grid { grid-template-columns: 1fr; } }
+
+.guide-card {
+  background: var(--cream-2);
+  border: 1.5px solid var(--ink-3);
+  border-radius: 4px 18px 4px 18px;
+  padding: 24px 22px 26px;
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  position: relative;
+  transition: transform .3s cubic-bezier(.2,.8,.2,1), box-shadow .3s, background .3s;
+  overflow: hidden;
+}
+.guide-card::after {
+  /* peeling corner */
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 22px 22px 0;
+  border-color: transparent var(--cream) transparent transparent;
+  filter: drop-shadow(-1px 1px 1px rgba(61,58,53,.18));
+  transition: border-width .3s;
+}
+.guide-card:hover {
+  transform: translateY(-6px) rotate(-0.6deg);
+  box-shadow: 0 16px 30px -16px rgba(61,58,53,.32);
+  background: #fff;
+}
+.guide-card:hover::after {
+  border-width: 0 30px 30px 0;
+}
+.guide-card .icon {
+  width: 44px;
+  height: 44px;
+  margin-bottom: 12px;
+  color: var(--forest);
+}
+.guide-card h4 {
+  font-family: var(--hand-display);
+  font-size: 28px;
+  font-weight: 600;
+  color: var(--ink);
+  margin: 0 0 6px;
+  line-height: 1.05;
+}
+.guide-card p {
+  font-family: var(--hand);
+  font-size: 15px;
+  color: var(--ink-2);
+  margin: 0;
+  line-height: 1.45;
+}
+
+/* ═══ Sketchbook / VTP gallery ═══ */
+.gallery-intro {
+  font-family: var(--serif);
+  font-size: 18px;
+  line-height: 1.75;
+  color: var(--ink-2);
+  max-width: 70ch;
+  margin: 0 0 48px;
+  font-style: italic;
+}
+
+/* Masonry-style gallery — items keep their natural aspect ratio
+   and stagger vertically like a sketchbook spread. */
+.gallery {
+  columns: 3;
+  column-gap: clamp(24px, 3.2vw, 44px);
+  margin: 32px 0 0;
+}
+.gallery .polaroid {
+  display: inline-block;
+  width: 100%;
+  margin: 0 0 clamp(32px, 4vw, 60px);
+  break-inside: avoid;
+  -webkit-column-break-inside: avoid;
+  cursor: zoom-in;
+}
+.gallery .polaroid:hover {
+  transform: rotate(0) translateY(-4px) scale(1.03) !important;
+  box-shadow:
+    0 1px 0 rgba(61,58,53,.06),
+    0 26px 40px -18px rgba(61,58,53,.36),
+    0 8px 16px -6px rgba(61,58,53,.20);
+  z-index: 5;
+}
+.gallery .polaroid .caption {
+  /* Hidden in the gallery; the lightbox still reads the textContent. */
+  position: absolute;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px; overflow: hidden;
+  clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+}
+@media (max-width: 900px) { .gallery { columns: 2; } }
+@media (max-width: 520px) { .gallery { columns: 1; } }
+
+/* When a frame holds a real image, drop the placeholder chrome and
+   let the image's natural aspect ratio drive the height. */
+.polaroid .frame:has(img) {
+  aspect-ratio: auto;
+  background: none;
+  border: none;
+  padding: 0;
+  display: block;
+  overflow: visible;
+}
+.polaroid .frame:has(img)::after { display: none; }
+.polaroid .frame:has(img) img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+/* ═══ VTP scroll gallery — horizontal handscroll ═══ */
+.scroll-shell {
+  position: relative;
+  margin: 32px 0 0;
+  padding: 4px 0 8px;
+}
+.scroll-gallery {
+  display: flex;
+  gap: clamp(28px, 3vw, 52px);
+  padding: 40px clamp(8px, 2vw, 24px) 56px;
+  overflow-x: auto;
+  overflow-y: visible;
+  scroll-snap-type: x mandatory;
+  scroll-padding-left: clamp(8px, 2vw, 24px);
+  scrollbar-width: thin;
+  scrollbar-color: var(--brown) transparent;
+  /* Soft horizontal fade at the edges, like a scroll continuing past view */
+  -webkit-mask-image: linear-gradient(to right, transparent 0, #000 3%, #000 97%, transparent 100%);
+          mask-image: linear-gradient(to right, transparent 0, #000 3%, #000 97%, transparent 100%);
+}
+.scroll-gallery::-webkit-scrollbar { height: 8px; }
+.scroll-gallery::-webkit-scrollbar-track { background: transparent; }
+.scroll-gallery::-webkit-scrollbar-thumb {
+  background: rgba(176,137,104,0.55);
+  border-radius: 999px;
+}
+.scroll-gallery .polaroid {
+  flex: 0 0 clamp(220px, 24vw, 300px);
+  width: clamp(220px, 24vw, 300px);
+  scroll-snap-align: start;
+  cursor: zoom-in;
+  margin: 0;
+}
+.scroll-gallery .polaroid:hover {
+  transform: rotate(0) translateY(-4px) scale(1.03) !important;
+  z-index: 5;
+  box-shadow:
+    0 1px 0 rgba(61,58,53,.06),
+    0 26px 40px -18px rgba(61,58,53,.36),
+    0 8px 16px -6px rgba(61,58,53,.20);
+}
+
+/* Force a uniform 1:1 square frame so the scroll row reads as one continuous strip */
+.scroll-gallery .polaroid .frame {
+  aspect-ratio: 1/1;
+  background: var(--cream-3);
+  background-image:
+    linear-gradient(135deg, rgba(61,58,53,.02) 0%, rgba(61,58,53,.06) 100%),
+    var(--paper-grain);
+  background-size: cover, 240px 240px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--hand);
+  color: var(--ink-3);
+  text-align: center;
+  padding: 16px;
+  font-size: 13px;
+  letter-spacing: 0.06em;
+  line-height: 1.5;
+  border: 1px dashed rgba(176,137,104,.5);
+  position: relative;
+  overflow: hidden;
+}
+.scroll-gallery .polaroid .frame:has(img) {
+  aspect-ratio: 1/1;
+  background: none;
+  border: none;
+  padding: 0;
+  display: block;
+}
+.scroll-gallery .polaroid .frame:has(img) img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.scroll-gallery .polaroid .caption {
+  position: absolute;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px; overflow: hidden;
+  clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+}
+
+/* Hand-pinned tilt — different per slot, reset on hover */
+.scroll-gallery .polaroid:nth-child(7n+1) { transform: rotate(-2.4deg); }
+.scroll-gallery .polaroid:nth-child(7n+2) { transform: rotate(1.8deg); }
+.scroll-gallery .polaroid:nth-child(7n+3) { transform: rotate(-1.2deg); }
+.scroll-gallery .polaroid:nth-child(7n+4) { transform: rotate(2.6deg); }
+.scroll-gallery .polaroid:nth-child(7n+5) { transform: rotate(-2.8deg); }
+.scroll-gallery .polaroid:nth-child(7n+6) { transform: rotate(1deg); }
+.scroll-gallery .polaroid:nth-child(7n)   { transform: rotate(-1.8deg); }
+
+/* Small page counter at the polaroid corner */
+.scroll-gallery .polaroid .page-num {
+  position: absolute;
+  top: 6px;
+  left: 14px;
+  font-family: var(--hand);
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  color: var(--ink-3);
+  z-index: 4;
+  text-transform: uppercase;
+}
+
+/* Top + bottom rule lines — the 'scroll' rails */
+.scroll-shell::before,
+.scroll-shell::after {
+  content: "";
+  position: absolute;
+  left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(to right, transparent 0, var(--brown) 8%, var(--brown) 92%, transparent 100%);
+  opacity: 0.32;
+  pointer-events: none;
+  z-index: 1;
+}
+.scroll-shell::before { top: 14px; }
+.scroll-shell::after  { bottom: 28px; }
+
+/* Prev / next nav */
+.scroll-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--cream);
+  border: 1.5px solid var(--ink);
+  font-family: var(--hand-display);
+  font-size: 30px;
+  color: var(--ink);
+  cursor: pointer;
+  z-index: 6;
+  box-shadow: 0 8px 18px -8px rgba(61,58,53,.35);
+  transition: background .2s, transform .2s, color .2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  padding: 0 0 4px;
+}
+.scroll-nav:hover {
+  background: var(--sun);
+  transform: translateY(-50%) scale(1.06);
+  color: var(--ink);
+}
+.scroll-nav--prev { left: -10px; }
+.scroll-nav--next { right: -10px; }
+@media (max-width: 600px) {
+  .scroll-nav { width: 40px; height: 40px; font-size: 24px; }
+  .scroll-nav--prev { left: 4px; }
+  .scroll-nav--next { right: 4px; }
+}
+
+.scroll-hint {
+  font-family: var(--hand);
+  font-size: 14px;
+  color: var(--ink-3);
+  text-align: center;
+  margin: 14px 0 0;
+  letter-spacing: 0.08em;
+}
+
+/* ═══ Reflection / essay paper ═══ */
+.paper {
+  background: #fff;
+  background-image:
+    linear-gradient(to bottom, transparent 0, transparent calc(2em - 1px), rgba(184,212,227,.32) calc(2em - 1px), rgba(184,212,227,.32) 2em, transparent 2em),
+    var(--paper-grain);
+  background-size: 100% 2em, 240px 240px;
+  border: 1px solid var(--cream-3);
+  border-left: 4px solid var(--pink);
+  padding: clamp(36px, 5vw, 64px) clamp(28px, 4vw, 56px);
+  border-radius: 2px 6px 6px 2px;
+  box-shadow:
+    0 1px 0 rgba(61,58,53,.05),
+    0 18px 36px -18px rgba(61,58,53,.18);
+  position: relative;
+  margin-top: 24px;
+}
+.paper::before {
+  /* notebook holes */
+  content: "";
+  position: absolute;
+  top: 24px;
+  bottom: 24px;
+  left: -6px;
+  width: 4px;
+  background-image: radial-gradient(circle at center, rgba(61,58,53,.32) 2px, transparent 2.5px);
+  background-repeat: repeat-y;
+  background-size: 4px 36px;
+  display: none;
+}
+.paper h4 {
+  font-family: var(--hand-display);
+  font-size: clamp(34px, 4vw, 48px);
+  font-weight: 600;
+  color: var(--forest);
+  margin: 0 0 6px;
+  line-height: 1;
+}
+.paper h5 {
+  font-family: var(--serif-alt);
+  font-style: italic;
+  font-size: clamp(18px, 1.6vw, 22px);
+  color: var(--ink-2);
+  margin: 0 0 28px;
+  font-weight: 400;
+}
+.paper p {
+  font-family: var(--serif);
+  font-size: 18px;
+  line-height: 1.78;
+  margin: 0 0 1em;
+  text-wrap: pretty;
+}
+.paper .placeholder {
+  font-family: var(--hand);
+  color: var(--ink-3);
+  border: 1.5px dashed var(--brown);
+  padding: 24px 28px;
+  border-radius: 4px;
+  font-size: 15px;
+  letter-spacing: 0.04em;
+  background: rgba(250,246,240,.6);
+}
+.paper .placeholder strong {
+  display: block;
+  color: var(--forest);
+  font-family: var(--hand-display);
+  font-size: 22px;
+  margin-bottom: 6px;
+  letter-spacing: 0.5px;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   Themed paper variants — sketchbook · lesson · statement · essay
+   Each variant supplies its own border, watercolor wash, and theme
+   colors via CSS custom properties; the .paper--themed framework
+   provides the shared chrome (tape strip, dashed frame, watermark
+   slot, corner leaf, divider line).
+   ═══════════════════════════════════════════════════════════════ */
+.paper--themed {
+  position: relative;
+  overflow: hidden;
+  padding: clamp(60px, 7vw, 92px) clamp(36px, 5vw, 72px);
+  box-shadow:
+    0 1px 0 rgba(61,58,53,.06),
+    0 30px 60px -24px rgba(74,103,65,.30),
+    0 10px 22px -10px rgba(61,58,53,.20);
+}
+.paper--themed::before {
+  /* tape strip top center, color via --theme-tape */
+  content: "";
+  position: absolute;
+  display: block;
+  top: -14px;
+  bottom: auto;
+  left: 50%;
+  right: auto;
+  transform: translateX(-50%) rotate(-2deg);
+  width: 130px;
+  height: 28px;
+  background: var(--theme-tape, rgba(168,184,154,.82));
+  background-image: none;
+  background-repeat: no-repeat;
+  background-size: auto;
+  border-left: 1.5px dashed rgba(176,137,104,.45);
+  border-right: 1.5px dashed rgba(176,137,104,.45);
+  z-index: 4;
+  box-shadow: 0 3px 6px rgba(61,58,53,.14);
+}
+.paper--themed::after {
+  /* faint dashed inner book-page frame */
+  content: "";
+  position: absolute;
+  inset: clamp(20px, 2.4vw, 32px);
+  border: 1px dashed var(--theme-frame, rgba(74,103,65,.22));
+  border-radius: 2px;
+  pointer-events: none;
+  z-index: 0;
+}
+.paper--themed > * { position: relative; z-index: 2; }
+
+.paper--themed .paper-watermark {
+  position: absolute;
+  right: -36px;
+  bottom: -48px;
+  width: clamp(220px, 30vw, 320px);
+  height: clamp(220px, 30vw, 320px);
+  opacity: 0.08;
+  color: var(--theme-color, var(--forest));
+  pointer-events: none;
+  transform: rotate(-4deg);
+  z-index: 0;
+}
+.paper--themed .paper-corner-leaf {
+  position: absolute;
+  top: 32px;
+  right: 36px;
+  width: 64px;
+  height: 64px;
+  opacity: 0.55;
+  color: var(--theme-leaf, var(--brown));
+  pointer-events: none;
+  transform: rotate(22deg);
+  z-index: 1;
+}
+.paper--themed .paper-divider {
+  display: block;
+  margin: 14px 0 36px;
+  width: min(320px, 60%);
+  height: 22px;
+  color: var(--theme-color, var(--forest));
+  opacity: 0.55;
+}
+
+/* Sketchbook reflection — pink + watercolor splash, learning to think in color */
+.paper--sketchbook {
+  --theme-color: var(--pink);
+  --theme-tape: rgba(244,182,168,.82);
+  --theme-frame: rgba(244,182,168,.40);
+  --theme-leaf: var(--sun);
+  border-left: 6px solid var(--pink);
+  background-image:
+    radial-gradient(ellipse 65% 45% at 90% 6%,  rgba(244,182,168,.34) 0%, transparent 55%),
+    radial-gradient(ellipse 60% 45% at 8% 96%,  rgba(232,197,71,.26)  0%, transparent 55%),
+    radial-gradient(ellipse 50% 35% at 95% 60%, rgba(184,212,227,.22) 0%, transparent 55%),
+    radial-gradient(ellipse 40% 28% at 6% 30%,  rgba(168,184,154,.18) 0%, transparent 55%),
+    radial-gradient(ellipse 30% 22% at 50% 50%, rgba(255,255,255,.45) 0%, transparent 70%),
+    var(--paper-grain);
+  background-size: 100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%, 240px 240px;
+}
+
+/* Lesson reflection — brown + symmetry, sage and sun mirrored across the page */
+.paper--lesson {
+  --theme-color: var(--brown);
+  --theme-tape: rgba(184,212,227,.82);
+  --theme-frame: rgba(176,137,104,.32);
+  --theme-leaf: var(--pink);
+  border-left: 6px solid var(--brown);
+  background-image:
+    radial-gradient(ellipse 50% 36% at 18% 12%, rgba(168,184,154,.28) 0%, transparent 55%),
+    radial-gradient(ellipse 50% 36% at 82% 88%, rgba(168,184,154,.28) 0%, transparent 55%),
+    radial-gradient(ellipse 42% 30% at 82% 14%, rgba(232,197,71,.22)  0%, transparent 55%),
+    radial-gradient(ellipse 42% 30% at 18% 86%, rgba(232,197,71,.22)  0%, transparent 55%),
+    radial-gradient(ellipse 30% 22% at 50% 50%, rgba(255,255,255,.42) 0%, transparent 70%),
+    var(--paper-grain);
+  background-size: 100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%, 240px 240px;
+}
+
+/* Visual Teaching Philosophy statement — forest + book-page, hand-bound book of beliefs */
+.paper--statement {
+  --theme-color: var(--forest);
+  --theme-tape: rgba(168,184,154,.82);
+  --theme-frame: rgba(74,103,65,.22);
+  --theme-leaf: var(--brown);
+  border-left: 6px solid var(--forest);
+  background-image:
+    radial-gradient(ellipse 65% 45% at 88% 6%,  rgba(168,184,154,.32) 0%, transparent 55%),
+    radial-gradient(ellipse 60% 45% at 8% 96%,  rgba(232,197,71,.26)  0%, transparent 55%),
+    radial-gradient(ellipse 50% 35% at 96% 58%, rgba(184,212,227,.22) 0%, transparent 55%),
+    radial-gradient(ellipse 40% 28% at 6% 32%,  rgba(244,182,168,.18) 0%, transparent 55%),
+    radial-gradient(ellipse 30% 22% at 50% 50%, rgba(255,255,255,.45) 0%, transparent 70%),
+    var(--paper-grain);
+  background-size: 100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%, 240px 240px;
+}
+
+/* Culminating essay — forest + tree, walking under the tree */
+.paper--essay {
+  --theme-color: var(--forest);
+  --theme-tape: rgba(168,184,154,.82);
+  --theme-frame: rgba(74,103,65,.22);
+  --theme-leaf: var(--brown);
+  border-left: 6px solid var(--brown);
+  background-image:
+    radial-gradient(ellipse 60% 42% at 92% 8%,  rgba(168,184,154,.30) 0%, transparent 55%),
+    radial-gradient(ellipse 55% 40% at 8% 94%,  rgba(176,137,104,.22) 0%, transparent 55%),
+    radial-gradient(ellipse 45% 32% at 95% 60%, rgba(232,197,71,.20)  0%, transparent 55%),
+    radial-gradient(ellipse 40% 28% at 6% 32%,  rgba(184,212,227,.18) 0%, transparent 55%),
+    radial-gradient(ellipse 30% 22% at 50% 50%, rgba(255,255,255,.40) 0%, transparent 70%),
+    var(--paper-grain);
+  background-size: 100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%, 240px 240px;
+}
+
+/* ═══ Lesson plan section ═══ */
+.lesson-plan {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: clamp(28px, 4vw, 64px);
+  align-items: start;
+  margin-top: 32px;
+}
+.lesson-plan--reverse {
+  grid-template-columns: 1fr 1.4fr;
+}
+.lesson-plan--reverse .pdf-frame::before {
+  /* Sage tape on the second artifact for visual variety. */
+  background: rgba(168,184,154,.82);
+  border-left-color: rgba(74,103,65,.35);
+  border-right-color: rgba(74,103,65,.35);
+}
+.lesson-plan--reverse .tape-button {
+  background: var(--sage);
+  color: var(--ink);
+}
+@media (max-width: 800px) {
+  .lesson-plan { grid-template-columns: 1fr; }
+  .lesson-plan--reverse { grid-template-columns: 1fr; }
+  /* On mobile, put the PDF first regardless of source order */
+  .lesson-plan--reverse .pdf-aside { order: 2; }
+  .lesson-plan--reverse .pdf-frame { order: 1; }
+}
+
+.pdf-frame {
+  background: #fff;
+  border: 1.5px solid var(--ink-3);
+  padding: 14px;
+  box-shadow: 0 18px 36px -20px rgba(61,58,53,.30);
+  border-radius: 3px;
+  position: relative;
+}
+.pdf-frame::before {
+  content: "";
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%) rotate(-2deg);
+  width: 92px; height: 24px;
+  background: rgba(184,212,227,.78);
+  border-left: 1px dashed rgba(74,103,65,.35);
+  border-right: 1px dashed rgba(74,103,65,.35);
+  z-index: 2;
+}
+.pdf-frame .embed-area {
+  aspect-ratio: 4/3;
+  background: var(--cream-3);
+  background-image: var(--paper-grain);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-family: var(--hand);
+  color: var(--ink-2);
+  padding: 20px;
+  border: 1px dashed rgba(176,137,104,.5);
+  gap: 8px;
+}
+.pdf-frame .embed-area svg { color: var(--brown); }
+.pdf-frame .embed-area strong {
+  font-family: var(--hand-display);
+  font-size: 22px;
+  color: var(--forest);
+}
+.pdf-frame .pdf-embed {
+  display: block;
+  width: 100%;
+  aspect-ratio: 3/4;
+  border: 0;
+  background: var(--cream-3);
+}
+.lesson-plan--reverse .pdf-embed {
+  /* Slide decks are landscape 16:9. */
+  aspect-ratio: 16/9;
+}
+
+.pdf-aside h4 {
+  font-family: var(--hand-display);
+  font-size: 36px;
+  color: var(--forest);
+  margin: 0 0 12px;
+}
+.pdf-aside p {
+  font-family: var(--serif);
+  color: var(--ink-2);
+  font-size: 17px;
+}
+
+.tape-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--hand);
+  font-size: 18px;
+  color: var(--ink);
+  background: var(--sun);
+  padding: 12px 24px;
+  text-decoration: none;
+  border: none;
+  position: relative;
+  transform: rotate(-1deg);
+  transition: transform .25s, box-shadow .25s;
+  box-shadow:
+    0 1px 0 rgba(61,58,53,.05),
+    0 8px 18px -10px rgba(61,58,53,.30);
+  cursor: pointer;
+  margin-top: 22px;
+  border-left: 1px dashed rgba(176,137,104,.45);
+  border-right: 1px dashed rgba(176,137,104,.45);
+}
+.tape-button:hover { transform: rotate(0) translateY(-2px); }
+.tape-button svg { width: 18px; height: 18px; }
+
+/* ═══ References ═══ */
+.references {
+  margin-top: 56px;
+  padding-top: 32px;
+  border-top: 1.5px dashed var(--ink-3);
+}
+.references h4 {
+  font-family: var(--hand-display);
+  font-size: 38px;
+  font-weight: 600;
+  color: var(--forest);
+  margin: 0 0 18px;
+}
+.references ol {
+  margin: 0;
+  padding-left: 24px;
+  columns: 2;
+  column-gap: 48px;
+}
+.references li {
+  font-family: var(--serif);
+  font-size: 15px;
+  line-height: 1.55;
+  color: var(--ink-2);
+  margin-bottom: 14px;
+  break-inside: avoid;
+  padding-left: 6px;
+}
+@media (max-width: 760px) { .references ol { columns: 1; } }
+
+/* APA-style reference list — hanging indent, two columns */
+.references .ref-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  columns: 2;
+  column-gap: 48px;
+}
+.references .ref-list li {
+  font-family: var(--serif);
+  font-size: 14.5px;
+  line-height: 1.6;
+  color: var(--ink-2);
+  margin: 0 0 16px;
+  padding: 0 0 0 1.6em;
+  text-indent: -1.6em;
+  break-inside: avoid;
+}
+.references .ref-list li em { font-style: italic; }
+.references .ref-list li a {
+  color: var(--brown);
+  text-decoration: none;
+  border-bottom: 1px dotted var(--brown);
+  word-break: break-word;
+}
+.references .ref-list li a:hover { color: var(--forest); border-bottom-color: var(--forest); }
+@media (max-width: 760px) { .references .ref-list { columns: 1; } }
+
+/* Section subheadings inside an essay paper */
+.paper h3 {
+  font-family: var(--hand-display);
+  font-size: clamp(28px, 3vw, 36px);
+  font-weight: 600;
+  color: var(--forest);
+  margin: 1.6em 0 0.5em;
+  line-height: 1.1;
+  letter-spacing: 0.5px;
+}
+.paper h3:first-of-type { margin-top: 1.1em; }
+.paper h3 + p::first-letter {
+  /* Subtle drop accent on the first paragraph of each section. */
+  font-family: var(--serif-alt);
+  font-size: 1.6em;
+  font-style: italic;
+  color: var(--brown);
+  font-weight: 500;
+  line-height: 1;
+  padding-right: 2px;
+}
+
+/* ═══ Footer ═══ */
+.foot {
+  background: var(--cream-2);
+  border-top: 1px dashed var(--ink-3);
+  padding: 48px clamp(20px, 4vw, 48px);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+.foot__brand {
+  font-family: var(--hand-display);
+  font-size: 26px;
+  color: var(--forest);
+}
+.foot__brand small {
+  display: block;
+  font-family: var(--hand);
+  font-size: 13px;
+  color: var(--ink-3);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+.foot__top {
+  font-family: var(--hand);
+  font-size: 16px;
+  color: var(--ink);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border-bottom: 1.5px dashed var(--ink-3);
+  padding-bottom: 2px;
+  transition: color .2s, border-color .2s;
+}
+.foot__top:hover { color: var(--forest); border-color: var(--forest); }
+
+/* ═══ Decorative botanicals ═══ */
+.botanical {
+  position: absolute;
+  pointer-events: none;
+  opacity: 0.6;
+  z-index: 0;
+}
+.botanical--tl { top: 16px; left: -10px; width: 110px; transform: rotate(-12deg); }
+.botanical--br { bottom: 24px; right: -10px; width: 130px; transform: rotate(8deg); }
+.botanical--side { top: 50%; right: -40px; width: 90px; transform: translateY(-50%) rotate(15deg); opacity: 0.4; }
+
+.section > * { position: relative; z-index: 1; }
+
+/* ═══ Lightbox ═══ */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  background: rgba(20,18,15,0.88);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .3s;
+  padding: 40px;
+}
+.lightbox.is-open { opacity: 1; pointer-events: auto; }
+.lightbox__stage {
+  max-width: 92vw;
+  max-height: 92vh;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  align-items: center;
+}
+.lightbox__img {
+  background: #fff;
+  padding: 16px 16px 12px;
+  max-width: 100%;
+  max-height: 64vh;
+  box-shadow: 0 30px 60px -20px rgba(0,0,0,.6);
+}
+.lightbox__img img,
+.lightbox__img .placeholder-img {
+  max-width: 84vw;
+  max-height: 60vh;
+  object-fit: contain;
+}
+.lightbox__img .placeholder-img {
+  width: 70vw;
+  aspect-ratio: 4/3;
+  background: var(--cream-3);
+  background-image: var(--paper-grain);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--hand);
+  color: var(--ink-2);
+  padding: 24px;
+  text-align: center;
+  border: 1px dashed var(--brown);
+}
+.lightbox__caption {
+  font-family: var(--serif);
+  font-style: italic;
+  color: var(--cream);
+  font-size: 17px;
+  line-height: 1.65;
+  text-align: center;
+  max-width: 60ch;
+  padding: 4px 8px;
+  text-wrap: pretty;
+  overflow-y: auto;
+  max-height: 22vh;
+}
+.lightbox__caption em {
+  font-style: normal;
+  color: var(--sun);
+}
+.lightbox__close,
+.lightbox__nav {
+  position: absolute;
+  background: transparent;
+  border: 2px solid rgba(250,246,240,.85);
+  color: var(--cream);
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  font-family: var(--hand-display);
+  font-size: 32px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background .2s, transform .2s;
+  z-index: 2;
+}
+.lightbox__close:hover,
+.lightbox__nav:hover {
+  background: rgba(250,246,240,.15);
+  transform: scale(1.08);
+}
+.lightbox__close { top: 24px; right: 24px; }
+.lightbox__nav--prev { left: 24px; top: 50%; transform: translateY(-50%); }
+.lightbox__nav--next { right: 24px; top: 50%; transform: translateY(-50%); }
+.lightbox__nav--prev:hover { transform: translateY(-50%) scale(1.08); }
+.lightbox__nav--next:hover { transform: translateY(-50%) scale(1.08); }
+
+@media (max-width: 600px) {
+  .lightbox { padding: 16px; }
+  .lightbox__close { top: 12px; right: 12px; width: 42px; height: 42px; font-size: 26px; }
+  .lightbox__nav { width: 42px; height: 42px; font-size: 22px; }
+  .lightbox__nav--prev { left: 8px; }
+  .lightbox__nav--next { right: 8px; }
+}
+
+/* Loose, hand-pinned tilt — varied enough to feel like an artist's
+   sketchbook spread, but reset to 0 on hover for legibility. */
+.gallery .polaroid:nth-child(7n+1) { transform: rotate(-3.2deg) translateY(0); }
+.gallery .polaroid:nth-child(7n+2) { transform: rotate(2.4deg)  translateY(14px); }
+.gallery .polaroid:nth-child(7n+3) { transform: rotate(-1.4deg) translateY(-10px); }
+.gallery .polaroid:nth-child(7n+4) { transform: rotate(3.6deg)  translateY(22px); }
+.gallery .polaroid:nth-child(7n+5) { transform: rotate(-2.6deg) translateY(-4px); }
+.gallery .polaroid:nth-child(7n+6) { transform: rotate(1.1deg)  translateY(18px); }
+.gallery .polaroid:nth-child(7n)   { transform: rotate(-2.9deg) translateY(8px); }
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════════════════════════
+     SVG sprite — botanicals & icons, used throughout
+     ═══════════════════════════════════════════════════════════════ -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <!-- leaf branch -->
+    <symbol id="i-branch" viewBox="0 0 120 120">
+      <g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M10 110 Q 40 80 60 60 T 110 12"/>
+        <path d="M28 92 Q 36 78 52 78 Q 44 88 28 92Z" fill="currentColor" fill-opacity="0.18"/>
+        <path d="M44 76 Q 56 64 72 66 Q 60 78 44 76Z" fill="currentColor" fill-opacity="0.18"/>
+        <path d="M62 60 Q 78 50 92 54 Q 80 64 62 60Z" fill="currentColor" fill-opacity="0.18"/>
+        <path d="M76 44 Q 88 36 100 40 Q 90 50 76 44Z" fill="currentColor" fill-opacity="0.18"/>
+        <path d="M30 92 Q 28 96 26 100"/>
+        <path d="M48 78 Q 46 84 44 88"/>
+      </g>
+    </symbol>
+    <!-- single leaf -->
+    <symbol id="i-leaf" viewBox="0 0 60 60">
+      <g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round">
+        <path d="M8 52 Q 14 18 50 8 Q 48 44 14 54 Q 12 50 8 52Z" fill="currentColor" fill-opacity="0.16"/>
+        <path d="M14 50 Q 28 36 42 18"/>
+        <path d="M22 42 Q 26 38 32 36"/>
+        <path d="M28 36 Q 32 30 38 28"/>
+      </g>
+    </symbol>
+    <!-- small flower -->
+    <symbol id="i-flower" viewBox="0 0 60 60">
+      <g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+        <ellipse cx="30" cy="18" rx="6" ry="9" fill="currentColor" fill-opacity="0.22"/>
+        <ellipse cx="42" cy="30" rx="9" ry="6" fill="currentColor" fill-opacity="0.22"/>
+        <ellipse cx="30" cy="42" rx="6" ry="9" fill="currentColor" fill-opacity="0.22"/>
+        <ellipse cx="18" cy="30" rx="9" ry="6" fill="currentColor" fill-opacity="0.22"/>
+        <circle cx="30" cy="30" r="4" fill="currentColor" fill-opacity="0.6"/>
+        <path d="M30 50 Q 28 56 24 58"/>
+      </g>
+    </symbol>
+    <!-- butterfly with symmetry axis -->
+    <symbol id="i-butterfly" viewBox="0 0 80 80">
+      <g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="40" y1="10" x2="40" y2="70" stroke-dasharray="3 3" opacity="0.5"/>
+        <path d="M40 28 Q 16 14 12 30 Q 10 44 28 50 Q 36 46 40 38Z" fill="currentColor" fill-opacity="0.22"/>
+        <path d="M40 28 Q 64 14 68 30 Q 70 44 52 50 Q 44 46 40 38Z" fill="currentColor" fill-opacity="0.22"/>
+        <path d="M40 38 Q 22 56 26 64 Q 34 60 40 50Z" fill="currentColor" fill-opacity="0.18"/>
+        <path d="M40 38 Q 58 56 54 64 Q 46 60 40 50Z" fill="currentColor" fill-opacity="0.18"/>
+        <ellipse cx="40" cy="36" rx="2" ry="14" fill="currentColor" fill-opacity="0.6"/>
+        <path d="M40 22 Q 36 14 32 12"/>
+        <path d="M40 22 Q 44 14 48 12"/>
+      </g>
+    </symbol>
+    <!-- Sketchbook icon -->
+    <symbol id="i-book-sketch" viewBox="0 0 48 48">
+      <g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M8 10 L8 40 L24 36 L40 40 L40 10 L24 6 Z"/>
+        <path d="M24 6 L24 36"/>
+        <path d="M14 16 Q 18 14 20 18"/>
+        <path d="M30 18 Q 33 14 36 18"/>
+      </g>
+    </symbol>
+    <!-- Pencil -->
+    <symbol id="i-pencil" viewBox="0 0 48 48">
+      <g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M8 40 L12 28 L32 8 L40 16 L20 36 Z"/>
+        <path d="M12 28 L20 36"/>
+        <path d="M28 12 L36 20"/>
+      </g>
+    </symbol>
+    <!-- Open book -->
+    <symbol id="i-book-open" viewBox="0 0 48 48">
+      <g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M6 12 Q 16 10 24 14 Q 32 10 42 12 L42 38 Q 32 36 24 40 Q 16 36 6 38 Z"/>
+        <path d="M24 14 L24 40"/>
+        <path d="M11 18 Q 16 17 21 19"/>
+        <path d="M11 24 Q 16 23 21 25"/>
+      </g>
+    </symbol>
+    <!-- Tree -->
+    <symbol id="i-tree" viewBox="0 0 48 48">
+      <g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M24 42 L24 28"/>
+        <path d="M24 28 Q 12 26 10 16 Q 14 18 18 16 Q 16 8 24 6 Q 32 8 30 16 Q 34 18 38 16 Q 36 26 24 28"/>
+        <path d="M16 42 L32 42"/>
+      </g>
+    </symbol>
+    <!-- Wavy divider line -->
+    <symbol id="i-wave" viewBox="0 0 400 24">
+      <g fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round">
+        <path d="M4 12 Q 30 4 56 12 T 108 12 T 160 12 T 212 12 T 264 12 T 316 12 T 368 12 T 396 12" stroke-dasharray="0"/>
+        <circle cx="200" cy="12" r="2" fill="currentColor"/>
+        <circle cx="160" cy="12" r="1.2" fill="currentColor"/>
+        <circle cx="240" cy="12" r="1.2" fill="currentColor"/>
+      </g>
+    </symbol>
+    <!-- Download icon -->
+    <symbol id="i-down" viewBox="0 0 24 24">
+      <g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 4 L12 16"/>
+        <path d="M6 12 L12 18 L18 12"/>
+        <path d="M4 20 L20 20"/>
+      </g>
+    </symbol>
+    <!-- PDF icon -->
+    <symbol id="i-pdf" viewBox="0 0 64 80">
+      <g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M10 4 L40 4 L54 18 L54 76 L10 76 Z"/>
+        <path d="M40 4 L40 18 L54 18"/>
+        <text x="32" y="56" text-anchor="middle" font-family="Caveat, cursive" font-size="22" fill="currentColor" stroke="none">PDF</text>
+      </g>
+    </symbol>
+    <!-- Up arrow -->
+    <symbol id="i-up" viewBox="0 0 24 24">
+      <g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 20 L12 6"/>
+        <path d="M6 12 L12 6 L18 12"/>
+      </g>
+    </symbol>
+    <!-- Welcome badge -->
+    <symbol id="i-badge" viewBox="0 0 130 130">
+      <g fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="65" cy="65" r="50" stroke-dasharray="3 4"/>
+        <circle cx="65" cy="65" r="40"/>
+        <text x="65" y="60" text-anchor="middle" font-family="Caveat, cursive" font-size="20" fill="currentColor" stroke="none">EDUC 5390</text>
+        <text x="65" y="80" text-anchor="middle" font-family="Patrick Hand, cursive" font-size="11" fill="currentColor" stroke="none" letter-spacing="2">SPRING · 2026</text>
+        <path d="M40 90 Q 50 96 65 96 Q 80 96 90 90"/>
+      </g>
+    </symbol>
+  </defs>
+</svg>
+
+<!-- ═══════════════════════════════════════════════════════════════
+     NAV
+     ═══════════════════════════════════════════════════════════════ -->
+<nav class="nav">
+  <div class="nav__inner">
+    <a class="nav__brand" href="index.html">
+      Portfolio
+      <small>EDUC 5390 · Penn GSE</small>
+    </a>
+    <button class="nav__burger" type="button" aria-label="Toggle menu">menu</button>
+    <ul class="nav__list" id="navList">
+      <li><a href="index.html">About</a></li>
+      <li><a href="sketchbook.html">Sketchbook</a></li>
+      <li><a href="lesson.html">Lesson</a></li>
+      <li><a href="philosophy.html">Philosophy</a></li>
+      <li><a href="essay.html">Essay</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- ═══════════════════════════════════════════════════════════════
+     1. ABOUT
+     ═══════════════════════════════════════════════════════════════ -->
+
+<!-- ═══════════════════════════════════════════════════════════════
+     2. SKETCHBOOK
+     ═══════════════════════════════════════════════════════════════ -->
+
+<!-- ═══════════════════════════════════════════════════════════════
+     3. LESSON PLAN
+     ═══════════════════════════════════════════════════════════════ -->
+<section id="lesson" class="section">
+  <svg class="botanical botanical--tl" viewBox="0 0 80 80" style="color: var(--pink); width:100px;"><use href="#i-butterfly"/></svg>
+
+  <p class="eyebrow"><svg width="18" height="18" style="color:var(--forest)"><use href="#i-butterfly"/></svg> Section 03</p>
+  <h2 class="hand-title h-display" style="font-size: clamp(48px, 7.5vw, 92px); color: var(--forest);">Lesson Plan &amp; Reflection</h2>
+  <p class="h-sub">Symmetry in Geometry &mdash; Discovering Line Symmetry through Movement and Art.</p>
+
+  <div class="lesson-plan">
+    <div class="pdf-frame">
+      <iframe class="pdf-embed"
+              src="assets/Lesson%20Plan%20-%20Math.pdf#view=FitH"
+              title="Lesson Plan — Symmetry in Geometry"
+              loading="lazy"></iframe>
+    </div>
+    <aside class="pdf-aside">
+      <h4>The Plan</h4>
+      <p>
+        The full lesson plan &mdash; objectives, the four embodied activities, anchor charts,
+        and the rubric we used to read student work. Click the tape&#8209;label below to
+        download a copy.
+      </p>
+      <a class="tape-button" href="assets/Lesson%20Plan%20-%20Math.pdf" download>
+        <svg><use href="#i-down"/></svg>
+        Download Lesson Plan (PDF)
+      </a>
+    </aside>
+  </div>
+
+  <svg class="divider" style="color: var(--brown)"><use href="#i-wave"/></svg>
+
+  <div class="lesson-plan lesson-plan--reverse">
+    <aside class="pdf-aside">
+      <h4>The Slides</h4>
+      <p>
+        The accompanying slide deck &mdash; the version of this lesson I shared with my
+        classmates and instructor, walking through the framing, the four activities, and what
+        we hoped students would arrive at through doing.
+      </p>
+      <a class="tape-button" href="assets/EDUC%205930%20Art%20Project%20Presentation.pdf" download>
+        <svg><use href="#i-down"/></svg>
+        Download Slides (PDF)
+      </a>
+    </aside>
+    <div class="pdf-frame">
+      <iframe class="pdf-embed"
+              src="assets/EDUC%205930%20Art%20Project%20Presentation.pdf#view=FitH"
+              title="Class Presentation — Symmetry through Movement and Art"
+              loading="lazy"></iframe>
+    </div>
+  </div>
+
+  <svg class="divider" style="color: var(--sage)"><use href="#i-wave"/></svg>
+
+  <article class="paper paper--themed paper--lesson">
+    <svg class="paper-watermark" viewBox="0 0 80 80" aria-hidden="true"><use href="#i-butterfly"/></svg>
+    <svg class="paper-corner-leaf" viewBox="0 0 60 60" aria-hidden="true"><use href="#i-leaf"/></svg>
+    <svg width="56" height="56" style="color: var(--brown); margin-bottom: 12px;"><use href="#i-butterfly"/></svg>
+    <h4>Reflection</h4>
+    <h5>Designing a Lesson Where Geometry Could Be Felt</h5>
+    <svg class="paper-divider" viewBox="0 0 400 24" aria-hidden="true"><use href="#i-wave"/></svg>
+
+    <p>
+      When my team and I sat down to design our arts&#8209;integrated math lesson, the first
+      question we asked was not &ldquo;what should the students learn?&rdquo; but &ldquo;what
+      kind of learning do we want them to experience?&rdquo; That shift in question shaped
+      everything that followed. We were teaching line symmetry to fifth graders &mdash; a topic
+      that, in most classrooms, lives on a worksheet. We wanted it to live in their bodies,
+      their hands, and their attention to the world around them. The lesson we designed used
+      four short activities &mdash; embodied movement to Bach, fold paintings, partner drawing
+      across a center line, and paper cutting &mdash; to let students arrive at the concept of
+      symmetry through doing rather than being told.
+    </p>
+
+    <p>
+      The biggest challenge in the planning phase was figuring out what
+      &ldquo;integration&rdquo; actually means. It is easy to design a lesson where art is
+      decorative &mdash; paint a butterfly, label its symmetry, move on. But Rosenfeld (2013)
+      writes about her search for an &ldquo;elegant fit&rdquo; between math and dance, and that
+      phrase became our standard. We did not want art added to math; we wanted art and math to
+      be doing the same work at the same time. The fold&#8209;painting activity, for example,
+      is not a craft tacked onto a definition. <em>The act of folding is the line of
+      symmetry.</em> When the paper opens, the student sees the concept they just performed.
+      The math and the art are inseparable. Reaching that kind of fit took several rounds of
+      revision and a lot of conversation with my partners about what we actually wanted
+      students to understand.
+    </p>
+
+    <p>
+      A second challenge was pacing. Forty minutes is short, and we had four activities. We
+      worried we were trying to do too much. But we also believed in giving students different
+      ways <em>in</em> to the same idea, because Eisner (2002) reminds us that the arts teach
+      us there are many forms of intelligence, and that no single mode of representation can
+      capture everything a child knows. A student who could not yet articulate symmetry in
+      words might feel it through mirroring a partner&rsquo;s body. Another student might only
+      understand it once they folded paint between folded paper. Siegel&rsquo;s (1995) idea of
+      <em>transmediation</em> &mdash; that meaning grows when it moves across sign systems
+      &mdash; gave us the language for what we were doing. Each activity was not a repetition.
+      It was a translation, and each translation deepened the concept.
+    </p>
+
+    <p>
+      Executing the lesson taught me things the planning could not. The movement activity
+      surprised me the most. When we taped the line on the floor and asked students to mirror
+      each other to Bach&rsquo;s music, I expected some shyness or hesitation. Instead,
+      students became serious and focused. They corrected each other gently &mdash;
+      &ldquo;your arm is too high&rdquo; &mdash; and they did so without us telling them what
+      to look for. They were already doing the assessment themselves. That moment confirmed
+      something I have come to believe deeply this semester: <em>when students are trusted to
+      discover, they take the work seriously.</em> The classroom did not need me to control
+      it. It needed me to design conditions where curiosity could do the teaching.
+    </p>
+
+    <p>
+      There were things I would change. I noticed that the partner&#8209;drawing activity
+      moved more slowly than we expected, and a few pairs needed more scaffolding to
+      communicate across the center line. Next time, I would build in a quick model &mdash;
+      perhaps with one of my co&#8209;teachers &mdash; to show students what the conversation
+      between partners might sound like. I also wished we had taken the lesson outside. As I
+      reflect on my own teaching philosophy, which is rooted in Rousseau&#8209;inspired
+      natural education and the belief that learning does not have to happen inside a room
+      with a roof, I keep thinking how powerful it would have been to find symmetry in real
+      leaves, butterfly wings, the shadows of a building. The curriculum was already there in
+      the world. We just stayed inside.
+    </p>
+
+    <p>
+      What I take away from this lesson is a clearer sense of what arts&#8209;integrated
+      teaching asks of me as a teacher. It asks me to plan for student <em>discovery</em>
+      rather than for student <em>compliance</em>. It asks me to trust that movement, color,
+      and material are not breaks from rigorous learning but the substance of it. And it asks
+      me to keep refining my own definition of &ldquo;elegant fit&rdquo; &mdash; the moment
+      when an art form and a concept truly become the same act. I left this lesson believing
+      more than ever that abstract ideas in the K&ndash;12 classroom can be embodied, joyful,
+      and curiosity&#8209;driven. We just have to design with that as the goal.
+    </p>
+  </article>
+
+  <svg class="botanical botanical--br" viewBox="0 0 60 60" style="color: var(--sage); width:100px;"><use href="#i-leaf"/></svg>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════════
+     4. VISUAL TEACHING PHILOSOPHY
+     ═══════════════════════════════════════════════════════════════ -->
+
+<!-- ═══════════════════════════════════════════════════════════════
+     5. CULMINATING ESSAY
+     ═══════════════════════════════════════════════════════════════ -->
+
+<!-- ═══════════════════════════════════════════════════════════════
+     FOOTER
+     ═══════════════════════════════════════════════════════════════ -->
+<footer class="foot">
+  <div class="foot__brand">
+    Jasmine
+    <small>EDUC 5390 · Penn GSE · Spring 2026</small>
+  </div>
+  <svg width="80" height="60" style="color: var(--sage)"><use href="#i-branch"/></svg>
+  <a href="#" class="foot__top" onclick="window.scrollTo({top:0,behavior:'smooth'});event.preventDefault();">
+    <svg width="14" height="14"><use href="#i-up"/></svg>
+    Back to top
+  </a>
+</footer>
+
+<!-- ═══════════════════════════════════════════════════════════════
+     LIGHTBOX
+     ═══════════════════════════════════════════════════════════════ -->
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image viewer">
+  <button class="lightbox__close" id="lbClose" aria-label="Close">×</button>
+  <button class="lightbox__nav lightbox__nav--prev" id="lbPrev" aria-label="Previous image">‹</button>
+  <button class="lightbox__nav lightbox__nav--next" id="lbNext" aria-label="Next image">›</button>
+  <div class="lightbox__stage">
+    <div class="lightbox__img" id="lbImg">
+      <div class="placeholder-img">[ Image will appear here ]</div>
+    </div>
+    <div class="lightbox__caption" id="lbCaption">[ Caption ]</div>
+  </div>
+</div>
+
+<script>
+/* ═══════════════════════════════════════════════════════════════
+   Nav burger (mobile) + active link tracking
+   ═══════════════════════════════════════════════════════════════ */
+(function () {
+  const burger = document.querySelector('.nav__burger');
+  const list = document.getElementById('navList');
+  burger.addEventListener('click', () => list.classList.toggle('is-open'));
+  list.addEventListener('click', (e) => {
+    if (e.target.tagName === 'A') list.classList.remove('is-open');
+  });
+
+  // Highlight the current page by matching href to the current pathname.
+  const links = list.querySelectorAll('a');
+  const path = (location.pathname.split('/').pop() || 'index.html').toLowerCase();
+  links.forEach(a => {
+    const href = (a.getAttribute('href') || '').toLowerCase();
+    a.classList.toggle('is-active', href === path);
+  });
+})();
+
+/* ═══════════════════════════════════════════════════════════════
+   Scroll-gallery (VTP) — prev / next arrow buttons
+   ═══════════════════════════════════════════════════════════════ */
+(function () {
+  document.querySelectorAll('.scroll-shell').forEach(shell => {
+    const track = shell.querySelector('.scroll-gallery');
+    if (!track) return;
+    const prev = shell.querySelector('.scroll-nav--prev');
+    const next = shell.querySelector('.scroll-nav--next');
+    function step() {
+      const item = track.querySelector('.polaroid');
+      if (!item) return 280;
+      const cs = getComputedStyle(track);
+      const gap = parseFloat(cs.columnGap || cs.gap) || 0;
+      return item.offsetWidth + gap;
+    }
+    if (prev) prev.addEventListener('click', () => track.scrollBy({ left: -step(), behavior: 'smooth' }));
+    if (next) next.addEventListener('click', () => track.scrollBy({ left:  step(), behavior: 'smooth' }));
+  });
+})();
+
+/* ═══════════════════════════════════════════════════════════════
+   Lightbox
+   ═══════════════════════════════════════════════════════════════ */
+(function () {
+  const lb       = document.getElementById('lightbox');
+  const lbImg    = document.getElementById('lbImg');
+  const lbCap    = document.getElementById('lbCaption');
+  const lbClose  = document.getElementById('lbClose');
+  const lbPrev   = document.getElementById('lbPrev');
+  const lbNext   = document.getElementById('lbNext');
+
+  let activeGallery = [];
+  let activeIdx = 0;
+
+  function buildContent(figure) {
+    const img = figure.querySelector('.frame img');
+    const placeholder = figure.querySelector('.frame span');
+    // innerHTML keeps inline <em>/<strong>/non-breaking hyphens from the caption.
+    const captionHtml = figure.querySelector('.caption').innerHTML.trim();
+    if (img) {
+      return { html: `<img src="${img.src}" alt="${img.alt || ''}" />`, caption: captionHtml };
+    } else {
+      return {
+        html: `<div class="placeholder-img">${placeholder ? placeholder.textContent : ''}</div>`,
+        caption: captionHtml
+      };
+    }
+  }
+
+  function open(galleryEl, idx) {
+    activeGallery = Array.from(galleryEl.querySelectorAll('.polaroid'));
+    activeIdx = idx;
+    render();
+    lb.classList.add('is-open');
+    document.body.style.overflow = 'hidden';
+  }
+  function close() {
+    lb.classList.remove('is-open');
+    document.body.style.overflow = '';
+  }
+  function render() {
+    if (!activeGallery.length) return;
+    const fig = activeGallery[activeIdx];
+    const { html, caption } = buildContent(fig);
+    lbImg.innerHTML = html;
+    lbCap.innerHTML = caption || '';
+  }
+  function step(delta) {
+    if (!activeGallery.length) return;
+    activeIdx = (activeIdx + delta + activeGallery.length) % activeGallery.length;
+    render();
+  }
+
+  document.querySelectorAll('[data-gallery]').forEach(gallery => {
+    gallery.addEventListener('click', (e) => {
+      const fig = e.target.closest('.polaroid');
+      if (!fig) return;
+      const idx = Array.from(gallery.querySelectorAll('.polaroid')).indexOf(fig);
+      open(gallery, idx);
+    });
+  });
+
+  lbClose.addEventListener('click', close);
+  lbPrev.addEventListener('click', () => step(-1));
+  lbNext.addEventListener('click', () => step(1));
+  lb.addEventListener('click', (e) => { if (e.target === lb) close(); });
+
+  document.addEventListener('keydown', (e) => {
+    if (!lb.classList.contains('is-open')) return;
+    if (e.key === 'Escape') close();
+    else if (e.key === 'ArrowLeft') step(-1);
+    else if (e.key === 'ArrowRight') step(1);
+  });
+
+  // Touch swipe
+  let touchX = null;
+  lb.addEventListener('touchstart', (e) => { touchX = e.touches[0].clientX; }, { passive: true });
+  lb.addEventListener('touchend', (e) => {
+    if (touchX == null) return;
+    const dx = e.changedTouches[0].clientX - touchX;
+    if (Math.abs(dx) > 50) step(dx < 0 ? 1 : -1);
+    touchX = null;
+  }, { passive: true });
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,385 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>EDUC 5390 Portfolio — About</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,300..700;1,8..60,300..700&family=Inter+Tight:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<style>
+  /* Home-only layout */
+  .hero {
+    display: grid;
+    grid-template-columns: 1.15fr 1fr;
+    gap: clamp(32px, 6vw, 96px);
+    align-items: end;
+    padding-bottom: 72px;
+    border-bottom: 1px solid var(--rule);
+  }
+  .hero__portrait {
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    background: var(--paper);
+  }
+  .hero figure { padding-top: 12px; }
+  .hero__caption {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 14px;
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    color: var(--ink-faint);
+    text-transform: uppercase;
+  }
+
+  /* Index of contents */
+  .toc {
+    margin-top: 80px;
+  }
+  .toc__head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 28px;
+    border-bottom: 1px solid var(--ink);
+    padding-bottom: 8px;
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink);
+  }
+  .toc__list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .toc__item {
+    display: grid;
+    grid-template-columns: 56px 1fr auto auto;
+    gap: 24px;
+    align-items: baseline;
+    padding: 26px 0;
+    border-bottom: 1px solid var(--rule);
+    transition: padding-left .25s ease, background .25s ease;
+  }
+  .toc__item:hover { padding-left: 16px; background: linear-gradient(to right, var(--cream-deep), transparent 60%); }
+  .toc__item a { border: none; }
+  .toc__num {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--ink-faint);
+    letter-spacing: 0.04em;
+  }
+  .toc__title {
+    font-family: var(--serif);
+    font-size: clamp(24px, 2.4vw, 32px);
+    line-height: 1.2;
+    font-weight: 400;
+  }
+  .toc__title em { font-style: italic; color: var(--accent); }
+  .toc__meta {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    color: var(--ink-faint);
+    text-transform: uppercase;
+  }
+  .toc__arrow {
+    font-family: var(--serif);
+    font-size: 24px;
+    color: var(--ink-faint);
+    transition: transform .25s, color .25s;
+  }
+  .toc__item:hover .toc__arrow { transform: translateX(8px); color: var(--accent); }
+
+  /* About body */
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(28px, 5vw, 80px);
+    margin-top: 80px;
+  }
+  .about-grid h2 { margin-top: 0; }
+  .about-grid .meta-block {
+    border-top: 1px solid var(--ink);
+    padding-top: 12px;
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    line-height: 2;
+  }
+  .about-grid .meta-block dt { color: var(--ink); margin-top: 12px; }
+  .about-grid .meta-block dd { margin: 0; }
+  .about-grid .meta-block dl { margin: 0; }
+
+  @media (max-width: 820px) {
+    .hero { grid-template-columns: 1fr; }
+    .about-grid { grid-template-columns: 1fr; }
+    .toc__item { grid-template-columns: 40px 1fr auto; }
+    .toc__meta { display: none; }
+  }
+
+  /* Self-introduction */
+  .bio {
+    display: grid;
+    grid-template-columns: 1.25fr 1fr;
+    gap: clamp(28px, 5vw, 88px);
+    align-items: center;
+    margin-top: 96px;
+    padding-top: 72px;
+    border-top: 1px solid var(--rule);
+  }
+  .bio__hello {
+    font-family: var(--serif);
+    font-size: clamp(40px, 5.6vw, 76px);
+    line-height: 1.04;
+    font-weight: 300;
+    letter-spacing: -0.02em;
+    margin: 16px 0 28px;
+    text-wrap: balance;
+  }
+  .bio__hello em { font-style: italic; color: var(--accent); font-weight: 400; }
+  .bio__prose p {
+    font-family: var(--serif);
+    font-size: 18px;
+    line-height: 1.65;
+    color: var(--ink-soft);
+    margin: 0 0 1em;
+    max-width: 52ch;
+  }
+  .bio__tags {
+    list-style: none;
+    padding: 0;
+    margin: 28px 0 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .bio__tags li {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    padding: 6px 12px;
+    border: 1px solid var(--rule);
+    border-radius: 999px;
+    background: var(--paper);
+  }
+  .bio__portrait {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+    padding-top: 14px;
+  }
+  .bio__portrait .pic { position: relative; margin: 0; }
+  .bio__portrait image-slot {
+    width: 100%;
+    aspect-ratio: 3/4;
+  }
+  .bio__portrait .pic--secondary {
+    width: 70%;
+    align-self: flex-end;
+    margin-right: 4%;
+  }
+  .bio__portrait .pic--secondary image-slot {
+    aspect-ratio: 4/5;
+  }
+  .bio__portrait figcaption {
+    margin-top: 14px;
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    color: var(--ink-faint);
+    text-transform: uppercase;
+    display: flex;
+    justify-content: space-between;
+  }
+  @media (max-width: 820px) {
+    .bio { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="site-header__inner">
+    <a href="index.html" class="brand">
+      EDUC 5390 Portfolio
+      <small>Critical Arts-Based Practices · Spring 2026</small>
+    </a>
+    <nav class="nav">
+      <a href="index.html" class="is-current">About</a>
+      <a href="sketchbook.html">Sketchbook</a>
+      <a href="lesson.html">Lesson</a>
+      <a href="philosophy.html">Philosophy</a>
+      <a href="essay.html">Essay</a>
+    </nav>
+  </div>
+</header>
+
+<main class="page">
+
+  <div class="folio">EDUC 5390 · Portfolio · Spring 2026</div>
+
+  <section class="hero">
+    <div>
+      <p class="eyebrow">A digital portfolio · spring 2026</p>
+      <h1 class="display">
+        Notes from a year of <em>looking,</em><br>
+        making, &amp; <em>teaching</em><br>
+        with the arts.
+      </h1>
+      <p class="lede">
+        This site gathers the major work of EDUC 5390 — a sketchbook practice, an arts-integrated
+        lesson, a visual teaching philosophy, and a culminating essay — alongside the questions
+        each piece raised. Together they trace how my understanding of arts-based pedagogy in the
+        K–12 classroom shifted across the semester.
+      </p>
+
+    </div>
+    <figure class="mounted taped--single tilt-r" style="margin:0;">
+      <image-slot id="home-portrait"
+                  shape="rect"
+                  class="hero__portrait"
+                  placeholder="Portrait or hero image"></image-slot>
+      <figcaption class="hero__caption">
+        <span>Fig. 01 — Author portrait</span>
+        <span>Drop image →</span>
+      </figcaption>
+    </figure>
+  </section>
+
+  <section class="bio" style="margin: 2px 0px 0px">
+    <div class="bio__intro">
+      <p class="eyebrow">About me</p>
+      <h2 class="bio__hello">Hi — I’m <em>                           Jasmine/Yuzhu Wang.</em></h2>
+      <div class="bio__prose">
+        <p>[ Open with one sentence about who you are: a future teacher, an artist, a graduate student. Where are you in your training, and what are you preparing to teach? ]</p>
+        <p>[ A second paragraph — what brought you to arts integration? An earlier classroom moment, a teacher of your own, a question you couldn’t shake? ]</p>
+        <p>[ Optional third paragraph — what you’re working on now, what you make outside of school, what you’re curious about going forward. ]</p>
+      </div>
+      <ul class="bio__tags">
+        <li>[ medium ]</li>
+        <li>[ grade level ]</li>
+        <li>[ subject area ]</li>
+        <li>[ interest ]</li>
+        <li>[ city / region ]</li>
+      </ul>
+    </div>
+    <div class="bio__portrait">
+      <figure class="pic mounted taped--single tilt-l">
+        <image-slot id="bio-portrait-1" src="assets/bio-cover.png" placeholder="Bio image 1"></image-slot>
+      </figure>
+      <figure class="pic pic--secondary mounted pinned tilt-r">
+        <image-slot id="bio-portrait-2" src="assets/bio-portrait.jpg" placeholder="Bio image 2"></image-slot>
+        <figcaption>
+          <span>Fig. 02 — A working portrait</span>
+        </figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="toc">
+    <div class="toc__head">
+      <span>Index</span>
+      <span>04 sections</span>
+    </div>
+    <ul class="toc__list">
+      <li class="toc__item">
+        <span class="toc__num">01</span>
+        <a href="sketchbook.html">
+          <div class="toc__title">Sketchbook <em>Practice</em></div>
+        </a>
+        <span class="toc__meta">10 excerpts · reflection</span>
+        <span class="toc__arrow">→</span>
+      </li>
+      <li class="toc__item">
+        <span class="toc__num">02</span>
+        <a href="lesson.html">
+          <div class="toc__title">Arts-Integrated <em>Lesson</em></div>
+        </a>
+        <span class="toc__meta">plan · materials · reflection</span>
+        <span class="toc__arrow">→</span>
+      </li>
+      <li class="toc__item">
+        <span class="toc__num">03</span>
+        <a href="philosophy.html">
+          <div class="toc__title">Visual Teaching <em>Philosophy</em></div>
+        </a>
+        <span class="toc__meta">book gallery · statement</span>
+        <span class="toc__arrow">→</span>
+      </li>
+      <li class="toc__item">
+        <span class="toc__num">04</span>
+        <a href="essay.html">
+          <div class="toc__title">Culminating <em>Essay</em></div>
+        </a>
+        <span class="toc__meta">1,200 words · 6–8 sources</span>
+        <span class="toc__arrow">→</span>
+      </li>
+    </ul>
+  </section>
+
+  <section class="about-grid">
+    <div>
+      <h2 class="section-title">About this portfolio</h2>
+      <div class="prose">
+        <p>
+          The four sections here grew out of the assignments that structured EDUC 5390. Each
+          began as a separate piece of work — a daily sketchbook habit, a lesson plan I tested
+          with students, a small handmade book, an academic essay — but reading them side by
+          side has shown me how much they speak to one another.
+        </p>
+        <p>
+          The portfolio is meant to be browsed slowly. The <a href="sketchbook.html">sketchbook</a>
+          opens with images and short captions; the <a href="lesson.html">lesson</a> shares the
+          plan and what happened when I taught it; the <a href="philosophy.html">visual teaching
+          philosophy</a> is a book I made to hold beliefs I could not yet say in prose; and the
+          <a href="essay.html">culminating essay</a> attempts to put those beliefs into the
+          language of the field.
+        </p>
+      </div>
+    </div>
+    <aside class="meta-block">
+      <dl>
+        <dt>Course</dt>
+        <dd>EDUC 5390 — Critical Arts-Based Practices &amp; Arts Integration</dd>
+        <dt>Term</dt>
+        <dd>Spring 2026</dd>
+        <dt>Submitted</dt>
+        <dd>May 8, 2026</dd>
+        <dt>Author</dt>
+        <dd>[ Your name ]</dd>
+        <dt>Program</dt>
+        <dd>[ Your program / institution ]</dd>
+        <dt>Contact</dt>
+        <dd>[ email ]</dd>
+      </dl>
+    </aside>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <span>© 2026 — EDUC 5390 Portfolio</span>
+  <nav class="nav-foot">
+    <a href="sketchbook.html">Sketchbook</a>
+    <a href="lesson.html">Lesson</a>
+    <a href="philosophy.html">Philosophy</a>
+    <a href="essay.html">Essay</a>
+  </nav>
+  <span>End of document</span>
+</footer>
+
+<script src="tape.js"></script>
+<script src="image-slot.js"></script>
+</body>
+</html>
